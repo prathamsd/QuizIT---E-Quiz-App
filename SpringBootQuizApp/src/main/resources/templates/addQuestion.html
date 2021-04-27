@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<title>Admin Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<head>
+<style>
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #009688;
+   color: white;
+   text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+  <h3 class="w3-bar-item">Menu</h3>
+  <a href="createQuiz" class="w3-bar-item w3-button">Create Quiz</a>
+  <a href="viewQuiz" class="w3-bar-item w3-button">View Quizzes</a>
+  <a href="viewResults" class="w3-bar-item w3-button">View Results</a>
+</div>
+
+<div style="margin-left:25%">
+
+<div class="w3-container w3-teal">
+  <h1>Create Quiz</h1>
+</div>
+
+
+<div class="w3-container">
+<h1>Add Quiz</h1>
+    <div style="min-height: calc(100vh - 200px);">
+        <!-- form to collect quiz name,key and marks -->
+       <center>
+       <br><br>
+
+
+       <div  class="content" style=" margin-top: 20px;" id="quest">
+        <p id="Message" style="visibility: hidden; font-size: large;"></p>
+
+        <!-- question taking form -->
+        <!-- <form onclick="addQuestion()" id="QForm" action="" method="POST">-->
+         <form  id="QForm" action="successAddQue" method="POST">
+            <label>Write a Question </label><br><textarea name = "title" id ="title" cols="50" rows="8"></textarea><br><br>
+             <label>A</label>&nbsp<input type="text" name="optionA" id="optionA">&nbsp&nbsp&nbsp
+             <label>B</label>&nbsp<input type="text" name="optionB" id="optionB">&nbsp&nbsp&nbsp
+             <label>C</label>&nbsp<input type="text" name="optionC" id="optionC">&nbsp&nbsp&nbsp
+             <label>D</label>&nbsp<input type="text" name="optionD" id="optionD">&nbsp&nbsp&nbsp<br><br>
+             <label>Correct option </label><input type="text" name="ans" id="ans"><br><br>
+         <button style="width: 10%;font-size: medium; background-color: rgb(10, 170, 10); color: white; border-radius: 5px;"  onClick="addQuestion()">Add</button>
+         
+         </form>
+            <br>
+           <button style="width: 10%;font-size: medium; background-color: rgb(10, 170, 10); color: white; border-radius: 5px;"  onClick="location.href = 'createQuiz';">Finish</button> 
+         
+       </div>
+   </center>
+    </div>
+    <div class="footer">
+        <p>Code Red</p>
+    </div>
+   
+      
+</div>
+
+</div>
+
+<script>
+function addQuestion(){
+			window.alert("question added successfully!");
+            document.getElementById("QForm").submit();
+        }
+
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("mySidebar").style.width = "25%";
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("openNav").style.display = 'none';
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("openNav").style.display = "inline-block";
+}
+</script>
+
+	<!-- Importing Footer -->
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<title>Admin Portal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<head>
+<style>
+.center {
+  margin: auto;
+  width: 60%;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #009688;
+   color: white;
+   text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+  <h3 class="w3-bar-item">Menu</h3>
+  <a href="createQuiz" class="w3-bar-item w3-button">Create Quiz</a>
+  <a href="viewQuiz" class="w3-bar-item w3-button">View Quizzes</a>
+  <a href="viewResults" class="w3-bar-item w3-button">View Results</a>
+</div>
+
+<div style="margin-left:25%">
+
+<div class="w3-container w3-teal">
+  <h1>Create Quiz</h1>
+</div>
+
+
+
+
+
+<div class="w3-container">
+<h1>Add Quiz</h1>
+    <div style="min-height: calc(100vh - 200px);">
+        <!-- form to collect quiz name,key and marks -->
+       <center>
+       <form id="mainForm" action="addQue" method="post">
+          <label>Quiz name&nbsp&nbsp</label><input class="Input" type="text" name="quiz_name" id="quiz_name"><br><br>
+           <label>Quiz key&nbsp&nbsp&nbsp&nbsp&nbsp</label><input class="Input" type="text" name="quiz_key" id="quiz_key"><br><br> 
+           <label>&nbsp&nbsp&nbsp&nbsp&nbsp</label><input class="Input" style ="visibility: hidden;"type="text" name="login_id" id="login_id" value="5"><br><br> 
+          <!-- <label>Total marks&nbsp</label><input  class="Input" type="text" name="QMarks" id="QMarks">  -->
+       <button style="width: 20%;font-size: medium; background-color: rgb(10, 170, 10); color: white; border-radius: 5px;" onclick="addQuestion()" id="addButton" class="collapsible" type="button">Add Questions</button>
+       </form><br><br>
+
+       <!-- main form submission button -->
+       
+
+   </center>
+    </div>
+    <div class="footer">
+        <p>Code Red</p>
+    </div>
+    
+    <script>
+        // submits form
+        function addQuestion(){
+            document.getElementById("mainForm").submit();
+        }
+    </script>
+</div>
+
+</div>
+
+<script>
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("mySidebar").style.width = "25%";
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("openNav").style.display = 'none';
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("openNav").style.display = "inline-block";
+}
+</script>
+
+	<!-- Importing Footer -->
+	
+    
+
+</body>
+</html>

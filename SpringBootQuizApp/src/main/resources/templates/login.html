@@ -1,0 +1,164 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+
+<html>
+<head>
+        <img id="logo">
+        <title>Login</title>
+		<meta http-equiv="Content-Type" content="text/html; charsequence=8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link href="https://fonts.googleapis.com/css?family-Play" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style type="text/css">
+body
+{
+    font-family: Tahoma, Geneva, sans-serif;
+    color: #fff;
+    text-align:center;
+    background-color:white;
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+form
+{
+	margin-top:4vh;
+	display: flex;  
+  	flex-wrap: nowrap;
+	border-radius: 10px;
+	border:1px solid grey;
+	padding-top:10px;
+	padding-bottom:10px;
+	padding-right:60px;
+	padding-left:60px;
+    text-align: center;
+    color:black;
+    background-color: white;
+    opacity: 0.8;
+}
+input
+{
+    width: 300px;
+    text-align: left;
+    background: transparent;
+    border: 2px solid grey;
+    font-family: 'play', sans-serif;
+    font-size: 20px;
+    padding: 10px ;
+    transition: border 0.5s;
+    outline: none;
+    color: black;
+    transition: 0.25s;
+    margin:2px auto;
+    margin-left: 20px;
+}
+
+div{
+	display:block;
+	min-width:320px;
+}
+button[type=button]
+{
+    border: 2px solid  #3498db;
+    width: 190px;
+    background-color:#1a73e8;
+    color: white;
+    font-style:bold;
+    font-size: 20px;
+    padding: 10px 0;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: 0.25s;
+    margin:20px auto;
+    margin-left: 20px;
+}
+button[type=submit]:hover
+{
+    background-color: rgb(250, 1, 1);
+    border-color: #3498db;
+}
+
+input:focus
+{	
+border-radius: 24px;
+border-color: #2ecc71; 
+margin-left: 20px;
+}
+h2
+{
+    color: #000;
+}
+::placeholder{
+    color:#4d6975;
+    opacity: 0.9;
+}
+
+#pa1{
+    color: red;
+    visibility: hidden;
+}
+
+header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+.signup{
+	display:flex;
+	 justify-content:center;
+}
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+</style>
+</head>
+<body>
+    <div class="signup">
+        <form id="form_id" action="loginNow" method="post">
+        <div>
+        	<h3 style="color: #3498db">QuizIt</h3>
+            <h6 style="color: black">Login<br>to continue</h6><br>
+            <input type="E-mail" name="UEmail" placeholder="Email" id="UEmail"><br><br>
+            <input type="password" name="Password" placeholder="Password" id="Password"><br><br>
+            <p id="pa1">enter all fields</p>
+            <button type="button" onclick="myFunction()">Login</button><br>
+            <div id="container">
+                    <a href="re.html"  style="margin-right:0px;  font-size:13px; font-family:Tahoma, Geneva, sans-serif;">Reset password</a>&nbsp&nbsp&nbsp&nbsp
+                    <a href="for.html" style="margin-right:0px;  font-size:13px; font_family:Tahoma, Geneva, sans-serif;">Forgot password</a>                
+            </div><br>
+            Don't have account?<a href="register" style="">&nbsp;Sign up</a>
+        </div>
+        </form>
+    </div>  
+    
+    <script>
+    function myFunction(){
+        var p=document.getElementById("Password").value;
+        var e=document.getElementById("UEmail").value;
+
+		
+        if(p&&e)
+        {       
+        	if(!validateEmail(e)){
+				 document.getElementById("pa1").innerHTML="Enter valid email!";
+           		 document.getElementById("pa1").style.visibility="visible";
+		  	}else{         
+          		document.getElementById("form_id").submit(); 
+          }
+        }else{
+          document.getElementById("pa1").style.visibility="visible";
+        }
+    }
+    
+function validateEmail(email) {
+        	  const re =  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        	  return re.test(email);
+        }       
+    </script> 
+</body>
+</html>

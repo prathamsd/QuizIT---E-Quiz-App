@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/css/score.css}">
+	<title>Admin Panel/Results</title>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	overflow-x: hidden;
+}
+
+.main-container {
+	min-height: calc(100vh - 136px);
+}
+
+table {
+	width: 100%;
+	text-align: center;
+}
+
+tr {
+	border: 1px solid white;
+}
+
+th, td {
+	padding: 10px;
+}
+
+header {
+  background-color: #009688;
+  padding: 15px;
+  text-align: left;
+  font-size: 35px;
+  color: white;
+}
+
+
+footer {
+  background-color: #009688;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  margin-top:20px;
+}
+
+</style>
+</head>
+<body>
+<header><h1>Results</h1></header>
+	<!-- Main Container Start -->
+	<div class="main-container container py-5 px-4">
+		<h3 style="color:white;" class="bg-dark text-center mb-5 p-2">Results</h3>
+		
+		<table>
+			<tr>
+				<th>Suject</th>
+				<th>Name</th>
+				<th>Score</th>
+			</tr>
+			<tr th:each="score : ${sList}">
+				<td th:text="${score.Subject}"></td>
+				<td th:text="${result.username}"></td>
+				<td th:text="${score.totalCorrect}"></td>
+			</tr>
+		</table>
+	</div>
+	
+	<!-- Importing Footer -->
+	<div th:insert="footer.html :: footer"></div>
+	
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+<footer><h1></h1></footer>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<form id="displayquiz" method="post" action="createQuiz">
+			<table>
+				<tr>
+					<th>Quiz Name</th>
+					<th>Quiz Key</th>
+				</tr>
+				<tr th:each="quiz : ${qList}">
+					<td input type="submit" th:text="${quiz.quiz_name}"
+						class="btn btn-primary btn-block" /></td>
+					<td th:text="${quiz.quiz_key}" /></td>
+				</tr>
+			</table>
+		</form>
+	
+</body>
+</html>

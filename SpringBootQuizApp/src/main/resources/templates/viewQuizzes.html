@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/css/score.css}">
+	<title>Admin Panel/Quiz</title>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: whitesmoke;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+.main-container {
+	min-height: calc(100vh - 136px);
+}
+
+table {
+	width: 100%;
+	text-align: center;
+}
+
+tr {
+	border: 1px solid white;
+	box-shadow: black;
+	border-radius: 5px;
+	min-height: 100px;
+	min-width: 200px;
+}
+
+th{
+	padding: 10px;
+}
+.shadow{
+	padding: 10px;
+    box-shadow:  -2px 2px black,
+         -2px 2px black,
+         -3px 3px black,
+         -4px 4px black,
+         -5px 5px black;
+	margin-top:20px;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  vertical-align: middle;
+}
+
+.NameHolder{
+	 vertical-align: middle;
+	 font-size: 20px; 
+	 margin-top: 20px; 
+	 margin-bottom: 20px;
+	 padding-left: 20px;
+}
+
+.buttonsView{
+	border-radius: 15px;
+	background-color: rgb(23, 148, 23);
+	color: white;
+	padding: 7px;
+  float: right;
+}
+
+header {
+  background-color: #009688;
+  padding: 15px;
+  text-align: left;
+  font-size: 35px;
+  color: white;
+}
+
+
+footer {
+  background-color: #009688;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  margin-top:20px;
+}
+
+</style>
+</head>
+<body>
+<header><h1>Quizzes</h1></header>
+	<!-- Main Container Start -->
+	<div class="main-container container py-5 px-4">
+		<h3 style="color:white;" class="bg-dark text-center mb-5 p-2">Quizzes</h3>
+		
+		
+			<div th:each="Quiz : ${qList}">
+				<div class="shadow" style="vertical-align: middle; min-width: 300px;min-height: 100px; background-color: white;  border-radius: 10px;">
+					<div class="NameHolder">
+						<a style="font-weight: bold; font-size:29px ; text-decoration: none;" href=""><span th:text="${Quiz.quiz_name}"></span> &nbsp&nbsp&nbsp&nbsp</a>
+						<a style="font-weight: bold; font-size:29px ; text-decoration: none;" href=""><span th:text="${Quiz.quiz_key}">&nbsp</span></a>
+						<button onClick="location.href ='viewCurrQue.html';"class="buttonsView" type="submit">View Questions</button>
+						<button class="buttonsView" style="visibility: hidden;" type="submit">button</button>
+					</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Importing Footer -->
+	<div th:insert="footer.html :: footer"></div>
+	
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+<footer><h1></h1></footer>
+</body>
+</html>
